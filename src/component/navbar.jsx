@@ -69,6 +69,16 @@ export default function Navbar() {
             >
               Get App
             </Link>
+            <Link className={`px-5 py-2.5 text-xs uppercase tracking-wider font-bold rounded-full transition
+                ${
+                  isScrolled
+                    ? "text-neutral-700 hover:bg-neutral-100"
+                    : "text-white hover:bg-white/10"
+                }`}
+                to={"/about"}
+            >
+              About
+            </Link>
           </div>
 
           {/* INTERACTIVE MOBILE BURGER TRIGGER */}
@@ -104,7 +114,7 @@ export default function Navbar() {
           </Link>
           <hr className="border-white/5" />
           <Link className="text-lg font-bold tracking-tight text-center uppercase text-neutral-400 hover:text-white transition"
-          onClick={() => setIsOpen(false)}
+          onClick={() => setIsOpen(false)} to={"/about"}
           >
             About
           </Link>
