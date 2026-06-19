@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Globe, Menu, X } from "lucide-react";
+import { Globe, Menu, X, } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -33,7 +33,7 @@ export default function Navbar() {
         {/* BRAND IDENTITY LOGO */}
         <Link
           to={"/"}
-          className="font-black text-2xl tracking-tight uppercase transition-colors"
+          className="font-black text-blue-500 text-2xl tracking-tight uppercase transition-colors"
         >
           Dwellify
         </Link>
@@ -62,18 +62,19 @@ export default function Navbar() {
               className={`px-6 py-2.5 text-xs uppercase tracking-wider font-black rounded-full transition shadow-sm
                 ${
                   isScrolled
-                    ? "bg-green-500 text-white hover:bg-green-400"
+                    ? "bg-blue-500 text-white hover:bg-blue-400"
                     : "bg-white text-black hover:bg-neutral-100"
                 }`}
+                to={"/get-app"}
             >
-              {isScrolled ? "Get App" : "Register"}
+              Get App
             </Link>
           </div>
 
           {/* INTERACTIVE MOBILE BURGER TRIGGER */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 cursor-pointer outline-none transition rounded-full hover:bg-current/5"
+            className="p-2 cursor-pointer outline-none transition rounded-full hover:bg-current/5 md:hidden"
             aria-label="Toggle Menu"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
@@ -85,7 +86,7 @@ export default function Navbar() {
          MOBILE DRAWER PANEL LAYOUT
          ========================================== */}
       <div
-        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300
+        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity md:hidden duration-300
           ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={() => setIsOpen(false)}
       />
@@ -107,12 +108,13 @@ export default function Navbar() {
           >
             About
           </Link>
-          <hr className="border-white/5" />
+          <hr className="border-white/5"/>
           <Link
+          to={"/get-app"}
             onClick={() => setIsOpen(false)}
-            className="w-full bg-green-500 text-center font-bold uppercase tracking-wider text-xs py-3.5 rounded-xl text-white shadow-lg shadow-green-500/10"
+            className="w-full bg-blue-500 text-center font-bold uppercase tracking-wider text-xs py-3.5 rounded-xl text-white shadow-lg shadow-blue-500/10"
           >
-            {isScrolled ? "Register" : "Get app"}
+            Get App
           </Link>
         </div>
 
